@@ -16,6 +16,10 @@ export function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemProps) {
     if (editText.trim()) {
       onEdit(todo.id, editText.trim())
       setIsEditing(false)
+    } else {
+      // Revert to original text if empty/whitespace
+      setEditText(todo.text)
+      setIsEditing(false)
     }
   }
 
